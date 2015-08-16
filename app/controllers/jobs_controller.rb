@@ -9,6 +9,7 @@ class JobsController < ApplicationController
       @categories = Category.find category_ids
     else
       category_ids = []
+      @categories = []
     end
     @jobs = Job.filter(category_ids, params[:zip])
   end
