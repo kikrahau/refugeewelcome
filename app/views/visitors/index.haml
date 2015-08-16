@@ -4,5 +4,5 @@
       .form-group
         =text_field_tag 'zip', nil, placeholder: 'Postleitzahl', class: 'form-control'
       .form-group
-        =create_checkboxes_for Category.all
+        =create_image_checkboxes_for Category.all
       =submit_tag :submit,name: nil, class: 'btn btn-primary'

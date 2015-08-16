@@ -1,0 +1,13 @@
+ @mixin opacity($number)  {
+  /* IE 5-7 */
+  filter: alpha(opacity= $number*100);
+
+  /* Netscape */
+  -moz-opacity: $number;
+
+  /* Safari 1.x */
+  -khtml-opacity: $number;
+
+  /* Good browsers */
+  opacity: $number;
+ }
