@@ -1,0 +1,8 @@
+.row
+  .col-md-6.col-md-offset-3{style: 'background-color: #fff'}
+    = form_tag jobs_path, method: 'GET' do 
+      .form-group
+        =text_field_tag 'zip', nil, placeholder: 'Postleitzahl', class: 'form-control'
+      .form-group
+        =create_checkboxes_for Category.all
+      =submit_tag :submit,name: nil, class: 'btn btn-primary'

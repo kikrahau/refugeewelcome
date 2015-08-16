@@ -1,0 +1,89 @@
+@mixin generate-paddings-and-margins($size:''){
+  $margin-and-padding-values: 0, 5, 10, 15, 20, 25, 30, 40, 50;
+  @each $value in $margin-and-padding-values {
+    .#{$size}margin-#{$value} { margin: #{$value}px; }
+    .#{$size}margin-top-#{$value} { margin-top: #{$value}px; }
+    .#{$size}margin-bottom-#{$value} { margin-bottom: #{$value}px; }
+    .#{$size}margin-left-#{$value} { margin-left: #{$value}px; }
+    .#{$size}margin-right-#{$value} { margin-right: #{$value}px; }
+    .#{$size}margin-y-#{$value} { margin-top: #{$value}px; margin-bottom: #{$value}px; }
+    .#{$size}margin-x-#{$value} { margin-left: #{$value}px; margin-right: #{$value}px; }
+
+    .#{$size}padding-#{$value} { padding: #{$value}px; }
+    .#{$size}padding-top-#{$value} { padding-top: #{$value}px; }
+    .#{$size}padding-bottom-#{$value} { padding-bottom: #{$value}px; }
+    .#{$size}padding-left-#{$value} { padding-left: #{$value}px; }
+    .#{$size}padding-right-#{$value} { padding-right: #{$value}px; }
+    .#{$size}padding-y-#{$value} { padding-top: #{$value}px; padding-bottom: #{$value}px; }
+    .#{$size}padding-x-#{$value} { padding-left: #{$value}px; padding-right: #{$value}px; }
+  }
+}
+@include generate-paddings-and-margins();
+
+.top{top:0}
+.bottom{bottom:0}
+.right{right:0}
+.left{left:0}
+
+// Floats
+.float-left{ float: left; }
+.float-right{ float: right; }
+.float-none{ float: none; }
+
+.relative{ position: relative; }
+.fixed{ position: fixed; }
+.absolute{ position: absolute; }
+
+// Text
+.text-center{ text-align: center; }
+.text-left{ text-align: left; }
+.text-right{ text-align: right; }
+.text-justify{ text-align: justify; }
+
+// Border
+
+.border-light{ border: 1px solid #eeeeee}
+
+.uppercase{ text-transform: uppercase; }
+
+// Colors
+.color-primary{ color: $brand-primary; }
+// .color-text{ color: $text-color; }
+// .color-success{ color: $success-color; }
+// .color-error{ color: $error-color; }
+// .color-warning{ color: $warning-color; }
+// .color-light{ color: $light-color; }
+// .color-dark{ color: $dark-color; }
+// .color-black{ color: #000; }
+.color-white { color: #fff; }
+
+// // Colors
+// .bg-main{ background-color: $main-color; }
+// .bg-success{ background-color: $success-color; color: #fff; }
+// .bg-error{ background-color: $error-color; color: #fff; }
+// .bg-warning{ background-color: $warning-color; color: #fff; }
+.bg-light{ background-color: $gray-lighter;}
+.bg-dark{ background-color: $gray; color: #fff; }
+.bg-white{ background-color: #fff; border: 1px solid #eeeeee }
+// .bg-white{ background-color: #fff; }
+
+
+// .border-color-main{ border-color: $main-color; }
+
+// Display
+.block{ display: block; }
+.inline-block{ display: inline-block; }
+.inline{ display: inline; }
+.hide{ display: none; }
+
+.full-width{ width: 100%; }
+
+.middle{ vertical-align: middle; }
+
+// Radius and borders
+.radius-3{ border-radius: 3px; }
+.radius-5{ border-radius: 5px; }
+.radius-10{ border-radius: 10px; }
+.radius-15{ border-radius: 15px; }
+
+.no-border{ border: none; }

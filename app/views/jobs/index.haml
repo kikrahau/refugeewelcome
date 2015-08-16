@@ -1,0 +1,16 @@
+%h1 Listing jobs
+
+%aside.col-md-4.bg-white
+  %h3 Ort
+  %hr
+  %span.btn.btn-primary.btn-xs{style: 'margin-bottom: 5px'}=params[:zip]
+  %h3 Kategorie
+  %hr
+  -@categories.each do |category|
+    %span.btn.btn-primary.btn-xs{style: 'margin-bottom: 5px'}=category.name
+%article.col-md-8
+  -@jobs.each do |job|
+    .col-xs-12.bg-white.padding-10{style: 'margin-bottom: 10px'}
+      =link_to job.title, job_path(job.id)
+      -job.categories.each do |category|
+        %p{style: 'color:red'}=category.name

@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'geocoder'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -30,6 +31,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'populator'
 end
 group :production do
   gem 'rails_12factor'

@@ -1,6 +1,34 @@
-// import the CSS framework
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
+$body-bg: rgb(252, 252, 252);
+$brand-primary: #ee6e73;
+
+
+$text-color: #555555;
+$font-family-sans-serif: "Roboto",Helvetica,Arial,sans-serif;
+$gray2: $text-color; 
+$font-size-base: 16px;
+
+$btn-link-disabled-color: #B0B0B0;
+
+
+$navbar-default-color: $brand-primary;
+$navbar-default-bg: #fff;
+
+$grid-gutter-width: 30px;
+$container-large-desktop: (940px + $grid-gutter-width);
+
+$link-hover-decoration: none;
+$link-color: $text-color;
+$link-hover-color: $brand-primary;
+
+$input-bg: #FFFFFF;
+$input-border-radius: 1px;
+$input-color: $text-color;
+$input-border-focus: $brand-primary;
+
+$navbar-default-link-hover-color: $brand-primary;
+
+
 
 // make all images responsive by default
 img {
@@ -35,9 +63,7 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
-  width: 100%;
   margin-top: 51px; // accommodate the navbar
   }
 section {

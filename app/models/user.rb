@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_and_belongs_to_many :categories, -> { uniq }
+	
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 

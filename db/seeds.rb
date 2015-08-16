@@ -7,3 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
+
+
+
+10.times {Job.create title: 'Geiler Scheiss Job JO', text: 'Refugeeees yeah jooooo geil yeah'}
