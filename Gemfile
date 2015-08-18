@@ -10,11 +10,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'geocoder'
 gem 'carrierwave'
 gem "mini_magick"
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml-rails'
@@ -30,6 +25,9 @@ group :development do
   gem 'rack-mini-profiler'
 end
 group :development, :test do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'

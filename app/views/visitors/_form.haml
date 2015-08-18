@@ -1,35 +1,30 @@
-%section
+%section.promo 
   .promo-image.background-size{style: "background-image: url( #{asset_path 'jungs.jpg'})"}
     .central-wrapper
-      .col-xs-9.col-md-offset-1
+      .col-xs-12.col-md-6.col-sm-8.col-md-offset-3.col-sm-offset-2
         #myWizard.wizard{"data-initialize" => "wizard"}
-          .steps-container
+          .steps-container{style: 'display:none'}
             %ul.steps
               %li.active{"data-name" => "place", "data-step" => "1"}
-                %span.badge> 1
-                Ort
+                %span.badge 1
                 %span.chevron
               %li{"data-name" => "categories","data-step" => "2"}
-                %span.badge> 2
-                Kategorien
+                %span.badge 2
                 %span.chevron
               %li{"data-name" => "time", "data-step" => "3"}
-                %span.badge> 3
-                Zeitaufwand
+                %span.badge 3
                 %span.chevron
           .actions
-            %button.btn.btn-default.btn-prev{:type => "button"}
-              %span.glyphicon.glyphicon-arrow-left>
-              Zurück
-            %button.btn.btn-default.btn-next{"data-last" => "Suchen", :type => "button"}
-              Weiter
+            %button.btn.btn-primary.btn-prev.btn-sm{:type => "button"}
+              %span.glyphicon.glyphicon-arrow-left
+            %button.btn.btn-primary.btn-next.btn-sm{"data-last" => "Los", :type => "button"}
               %span.glyphicon.glyphicon-arrow-right
-          = form_tag jobs_path, method: 'GET' do
+          = form_tag jobs_path, method: 'GET', id: 'wizard-form' do
             %fieldset 
               .step-content
                 / step 1 - Postleitzahl
                 .step-pane.active.alert{"data-step" => "1"}
-                  .col-xs-12.col-md-8.col-md-offset-2 
+                  .col-xs-12.col-md-8.col-md-offset-2.padding-0{style: 'margin-top: 15px;'} 
                     .control-group
                       %label{:for => "zip"} Bitte gib deine Postleitzahl ein.
                       .controls
@@ -39,7 +34,7 @@
                         %p.help-block Wir suchen passende Angebote in deiner Nähe.
                 / step 2 - Kategorien auswählen
                 .step-pane.alert{"data-step" => "2"}
-                  .col-xs-12.col-md-8.col-md-offset-2 
+                  .col-xs-12.col-md-8.col-md-offset-2.padding-0{style: 'margin-top: 15px;'}  
                     .control-group
                       %label.control-label{:for => "checkbox"} Welche Kategorien passen zu dir?
                       .controls
@@ -48,7 +43,7 @@
                         %p.help-block Wir passen die Ergebnisse deinen Bedürfnissen an.
                 / step 2 - Verfügbare Zeit angeben
                 .step-pane.alert{"data-step" => "3"}
-                  .col-xs-12.col-md-8.col-md-offset-2 
+                  .col-xs-12.col-md-8.col-md-offset-2.padding-0{style: 'margin-top: 15px;'}  
                     .control-group
                       %label.control-label{:for => "time"} Wieviel Zeit möchtest du investieren?
                       .controls
