@@ -11,6 +11,7 @@ class JobsController < ApplicationController
       category_ids = []
       @categories = []
     end
+    session[:return_to] ||= request.url
     @jobs = Job.filter(category_ids, params[:zip])
   end
 

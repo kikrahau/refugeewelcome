@@ -7,7 +7,7 @@ class Job < ActiveRecord::Base
 
 
 	def self.filter(category_ids, zipcode)
-	 	if category_ids.any? && !zipcode.blank? 
+	 	if category_ids.any? && zipcode.to_s.length >= 4 
 	 		joins(:categories).joins(:city_district).where('categories.id'=>category_ids).near(zipcode,40, :units => :km)
 	 	elsif category_ids.any?
 	 		joins(:categories).where('categories.id'=>category_ids)

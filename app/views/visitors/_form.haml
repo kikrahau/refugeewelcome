@@ -1,0 +1,64 @@
+%section
+  .promo-image.background-size{style: "background-image: url( #{asset_path 'jungs.jpg'})"}
+    .central-wrapper
+      .col-xs-9.col-md-offset-1
+        #myWizard.wizard{"data-initialize" => "wizard"}
+          .steps-container
+            %ul.steps
+              %li.active{"data-name" => "place", "data-step" => "1"}
+                %span.badge> 1
+                Ort
+                %span.chevron
+              %li{"data-name" => "categories","data-step" => "2"}
+                %span.badge> 2
+                Kategorien
+                %span.chevron
+              %li{"data-name" => "time", "data-step" => "3"}
+                %span.badge> 3
+                Zeitaufwand
+                %span.chevron
+          .actions
+            %button.btn.btn-default.btn-prev{:type => "button"}
+              %span.glyphicon.glyphicon-arrow-left>
+              Zurück
+            %button.btn.btn-default.btn-next{"data-last" => "Suchen", :type => "button"}
+              Weiter
+              %span.glyphicon.glyphicon-arrow-right
+          = form_tag jobs_path, method: 'GET' do
+            %fieldset 
+              .step-content
+                / step 1 - Postleitzahl
+                .step-pane.active.alert{"data-step" => "1"}
+                  .col-xs-12.col-md-8.col-md-offset-2 
+                    .control-group
+                      %label{:for => "zip"} Bitte gib deine Postleitzahl ein.
+                      .controls
+                        .input-group
+                          %span.input-group-addon.glyphicon.glyphicon-home
+                          =text_field_tag 'zip', nil, placeholder: 'Postleitzahl', class: 'form-control', id: 'zip'
+                        %p.help-block Wir suchen passende Angebote in deiner Nähe.
+                / step 2 - Kategorien auswählen
+                .step-pane.alert{"data-step" => "2"}
+                  .col-xs-12.col-md-8.col-md-offset-2 
+                    .control-group
+                      %label.control-label{:for => "checkbox"} Welche Kategorien passen zu dir?
+                      .controls
+                        / helper, der checkboxes mit seinen Bildren für die Kategorien erstellt
+                        =create_image_checkboxes_for Category.all
+                        %p.help-block Wir passen die Ergebnisse deinen Bedürfnissen an.
+                / step 2 - Verfügbare Zeit angeben
+                .step-pane.alert{"data-step" => "3"}
+                  .col-xs-12.col-md-8.col-md-offset-2 
+                    .control-group
+                      %label.control-label{:for => "time"} Wieviel Zeit möchtest du investieren?
+                      .controls
+                      -['1-5 h', '5-15 h','15-25 h', '25-40 h'].each do |time_unit|
+                        %label.radio-custom.radio-inline{"data-initialize" => "radio"}
+                          =radio_button_tag 'time',time_unit
+                          =time_unit
+                    %br
+                    .control-group
+                      %label.control-label.sr-only{:for => "submit"} Submit Button
+                      .controls
+                        =submit_tag 'Angebote Anzeigen',name: nil, class: 'btn btn-primary', style: 'width: 100%'
+

@@ -24,10 +24,10 @@ gem 'simple_form'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
-  gem 'html2haml'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem 'rack-mini-profiler'
 end
 group :development, :test do
   gem 'factory_girl_rails'
