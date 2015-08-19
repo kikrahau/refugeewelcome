@@ -3,17 +3,14 @@
     .central-wrapper
       .col-xs-12.col-md-6.col-sm-8.col-md-offset-3.col-sm-offset-2
         #myWizard.wizard{"data-initialize" => "wizard"}
-          .steps-container{style: 'display:none'}
+          .steps-container
             %ul.steps
               %li.active{"data-name" => "place", "data-step" => "1"}
                 %span.badge 1
-                %span.chevron
               %li{"data-name" => "categories","data-step" => "2"}
                 %span.badge 2
-                %span.chevron
               %li{"data-name" => "time", "data-step" => "3"}
                 %span.badge 3
-                %span.chevron
           .actions
             %button.btn.btn-primary.btn-prev.btn-sm{:type => "button"}
               %span.glyphicon.glyphicon-arrow-left
@@ -24,7 +21,7 @@
               .step-content
                 / step 1 - Postleitzahl
                 .step-pane.active.alert{"data-step" => "1"}
-                  .col-xs-12.col-md-8.col-md-offset-2.padding-0{style: 'margin-top: 15px;'} 
+                  .col-xs-12.col-md-8.col-md-offset-2.padding-0.form-step
                     .control-group
                       %label{:for => "zip"} Bitte gib deine Postleitzahl ein.
                       .controls
@@ -34,7 +31,7 @@
                         %p.help-block Wir suchen passende Angebote in deiner Nähe.
                 / step 2 - Kategorien auswählen
                 .step-pane.alert{"data-step" => "2"}
-                  .col-xs-12.col-md-8.col-md-offset-2.padding-0{style: 'margin-top: 15px;'}  
+                  .col-xs-12.col-md-8.col-md-offset-2.padding-0.form-step 
                     .control-group
                       %label.control-label{:for => "checkbox"} Welche Kategorien passen zu dir?
                       .controls
@@ -43,7 +40,7 @@
                         %p.help-block Wir passen die Ergebnisse deinen Bedürfnissen an.
                 / step 2 - Verfügbare Zeit angeben
                 .step-pane.alert{"data-step" => "3"}
-                  .col-xs-12.col-md-8.col-md-offset-2.padding-0{style: 'margin-top: 15px;'}  
+                  .col-xs-12.col-md-8.col-md-offset-2.padding-0.form-step 
                     .control-group
                       %label.control-label{:for => "time"} Wieviel Zeit möchtest du investieren?
                       .controls

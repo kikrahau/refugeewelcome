@@ -11,6 +11,13 @@
 %article.col-md-8
   -@jobs.each do |job|
     .col-xs-12.bg-white.padding-10{style: 'margin-bottom: 10px'}
-      =link_to job.title, job_path(job.id)
-      -job.categories.each do |category|
-        %p{style: 'color:red'}=category.name
+      %h4
+        =link_to job.title, job_path(job.id)
+        .span
+          %span.small= job.city_district.distance_from(params[:zip]).round(2) if params[:zip]
+          %span.small km von dir entfernt
+      %p=job.text
+      %span Kategorien:
+      %ul.list-inline
+        -job.categories.each do |category|
+          %li{style: 'color:red'}=category.name
