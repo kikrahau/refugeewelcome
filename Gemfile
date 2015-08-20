@@ -17,6 +17,7 @@ gem 'pg'
 gem 'pundit'
 gem 'simple_form'
 gem 'populator'
+gem 'faker'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -30,7 +31,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'rspec-rails'
 end
 group :production do
