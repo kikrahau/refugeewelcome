@@ -16,6 +16,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'pundit'
 gem 'simple_form'
+gem 'populator'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -31,7 +32,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'populator'
 end
 group :production do
   gem 'rails_12factor'
