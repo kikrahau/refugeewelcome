@@ -14,7 +14,7 @@
       %h4
         =link_to job.title, job_path(job.id)
         .span
-          %span.small= job.city_district.distance_from(params[:zip]).round(2) if params[:zip]
+          %span.small= job.city_district.distance_from(@city.coordinates).round(2) if @city
           %span.small km von dir entfernt
       %p=job.text
       %span Kategorien:

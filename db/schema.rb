@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816155826) do
+ActiveRecord::Schema.define(version: 20150820205639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20150816155826) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "city_districts", ["zip"], name: "index_city_districts_on_zip", using: :btree
+
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.text     "text"
@@ -74,6 +76,8 @@ ActiveRecord::Schema.define(version: 20150816155826) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.integer  "role"
+    t.string   "street"
+    t.integer  "city_district_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

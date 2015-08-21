@@ -12,7 +12,9 @@ class JobsController < ApplicationController
       @categories = []
     end
     session[:return_to] ||= request.url
-    @jobs = Job.filter(category_ids, params[:zip])
+    zip = params[:zip]
+    @city = CityDistrict.find_by(zip: zip) ? CityDistrict.find_by(zip: zip) : CityDistrict.first
+    @jobs = Job.filter(category_ids, @city)
   end
 
   # GET /jobs/1
