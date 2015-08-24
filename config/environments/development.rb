@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:1d9e5807aece9eca6798da6c628c32b0@catfish.redistogo.com:9641/'
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
