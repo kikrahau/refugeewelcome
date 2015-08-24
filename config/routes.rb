@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
+  get '/city-districts/index', action: 'index', controller: 'city_districts'
 end

@@ -22,7 +22,8 @@ $link-color: $text-color;
 $link-hover-color: $brand-primary;
 
 $input-bg: #FFFFFF;
-$input-border-radius: 1px;
+$border-radius-large: 0;
+$input-border: #fff;
 $input-color: $text-color;
 $input-border-focus: $brand-primary;
 
@@ -64,7 +65,6 @@ img {
 main {
   @extend .container;
   padding-bottom: 80px;
-  margin-top: 51px; // accommodate the navbar
   }
 section {
   @extend .row;
@@ -107,4 +107,61 @@ section {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+
+
+.ui-autocomplete {
+  position: absolute;
+  color: #999;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  width: 160px;
+  padding: 6px 4px;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  
+  .ui-menu-item {
+    text-transform: capitalize;
+    cursor:pointer;
+    padding: 6px 16px;
+    &:hover {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: $brand-primary;
+      background-image: none;
+    }
+  }
+  .ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+
+    &.ui-state-focus, &.ui-state-active {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: $brand-primary;
+      background-image: none;
+    }
+  }
 }

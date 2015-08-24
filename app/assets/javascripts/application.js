@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/autocomplete
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require fuelux.min.js
 //= require_tree .
