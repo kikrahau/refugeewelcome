@@ -3,7 +3,7 @@
 %aside.col-md-4.bg-white
   %h3 Ort
   %hr
-  %span.btn.btn-primary.btn-xs{style: 'margin-bottom: 5px'}=params[:zip]
+  %span.btn.btn-primary.btn-xs{style: 'margin-bottom: 5px'} #{@location.try(:zip)}, #{@location.try(:name)}
   %h3 Kategorie
   %hr
   -@categories.each do |category|
@@ -14,10 +14,10 @@
       %h4
         =link_to job.title, job_path(job.id)
         .span
-          %span.small= job.city_district.distance_from(@city.coordinates).round(2) if @city
+          %span.small= job.city_district.distance_from(@location.try(:coordinates)).round(2) if @location
           %span.small km von dir entfernt
       %p=job.text
       %span Kategorien:
       %ul.list-inline
-        -job.categories.each do |category|
-          %li{style: 'color:red'}=category.name
+        -job.categories.each do |job_category|
+          %li{style: 'color:red'}=job_category.name

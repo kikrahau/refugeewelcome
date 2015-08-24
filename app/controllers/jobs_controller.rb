@@ -12,8 +12,7 @@ class JobsController < ApplicationController
       @categories = []
     end
     session[:return_to] ||= request.url
-    zip = params[:zip]
-    @city = CityDistrict.find_by(zip: zip) ? CityDistrict.find_by(zip: zip) : CityDistrict.first
+    encode_location
     @jobs = Job.filter(category_ids, @city)
   end
 
@@ -80,5 +79,22 @@ class JobsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
       params.require(:job).permit(:title, :text, :category_ids)
-    end    
+    end   
+
+    def encode_location
+      @location = CityDistrict.find_by(zip: session[:location])
+      unless params[:location].blank?
+        if params[:location].is_numeric?
+          @location = CityDistrict.find_by(zip: params[:location])
+        else
+          @location = CityDistrict.find_by('name ILIKE ?', "%#{params[:location].downcase}%")
+        end
+
+        if params[:location] && @location.blank? 
+          flash[:error] = 'Stadt wurde nicht gefunden, versuchen Sie es erneut' 
+        else 
+          session[:location] = @location.zip
+        end
+      end
+    end 
 end
